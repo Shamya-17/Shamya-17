@@ -1,78 +1,142 @@
-const root = document.documentElement;
-const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* Theme: remembers choice, otherwise follows the device setting */
-let saved = null;
-try { saved = localStorage.getItem("theme"); } catch (e) {}
-root.dataset.theme = saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-document.getElementById("theme").addEventListener("click", () => {
-  root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
-  try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+/* =================================
+   INTERACTIVE CURSOR BACKGROUND
+================================= */
+
+const glow = document.querySelector(".cursor-glow");
+const grid = document.querySelector(".grid-background");
+
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+
+let gridX = 0;
+let gridY = 0;
+
+document.addEventListener("mousemove", (event) => {
+
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+
+    document.documentElement.style.setProperty(
+        "--mouse-x",
+        `${mouseX}px`
+    );
+
+    document.documentElement.style.setProperty(
+        "--mouse-y",
+        `${mouseY}px`
+    );
+
+    // Subtle grid movement
+    gridX = (mouseX / window.innerWidth - 0.5) * 12;
+    gridY = (mouseY / window.innerHeight - 0.5) * 12;
+
+    grid.style.backgroundPosition =
+        `${gridX}px ${gridY}px`;
+
 });
 
-/* Mobile menu */
-const menu = document.getElementById("menu");
-const burger = document.getElementById("burger");
-burger.addEventListener("click", () => {
-  burger.setAttribute("aria-expanded", menu.classList.toggle("open"));
-});
-menu.addEventListener("click", () => { menu.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); });
-
-/* Highlight the nav link for the section in view */
-const links = [...menu.querySelectorAll("a")];
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id));
-  });
-}, { rootMargin: "-45% 0px -50% 0px" });
-document.querySelectorAll("section[id]").forEach(s => io.observe(s));
-
-document.getElementById("year").textContent = new Date().getFullYear();
-
-/* Hero: a dot grid that bends away from the cursor */
-const canvas = document.getElementById("grid");
-const ctx = canvas.getContext("2d");
-const GAP = 30, RADIUS = 130;
-let w, h, dpr, dots = [], mouse = { x: -999, y: -999 };
-
-function resize() {
-  dpr = window.devicePixelRatio || 1;
-  w = canvas.clientWidth; h = canvas.clientHeight;
-  canvas.width = w * dpr; canvas.height = h * dpr;
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  dots = [];
-  for (let x = GAP / 2; x < w; x += GAP)
-    for (let y = GAP / 2; y < h; y += GAP) dots.push({ x, y });
-  draw();
+// Disable mouse-follow effect on touch devices
+if (window.matchMedia("(hover: none)").matches) {
+    glow.style.display = "none";
 }
 
-function draw() {
-  const css = getComputedStyle(root);
-  const base = css.getPropertyValue("--line").trim();
-  const accent = css.getPropertyValue("--accent").trim();
-  ctx.clearRect(0, 0, w, h);
-  for (const d of dots) {
-    const dx = d.x - mouse.x, dy = d.y - mouse.y, dist = Math.hypot(dx, dy);
-    const near = Math.max(0, 1 - dist / RADIUS);
-    const push = near * near * 22;
-    const px = d.x + (dist ? (dx / dist) * push : 0);
-    const py = d.y + (dist ? (dy / dist) * push : 0);
-    ctx.beginPath();
-    ctx.arc(px, py, 1.6 + near * 2.6, 0, Math.PI * 2);
-    ctx.fillStyle = near > 0.05 ? accent : base;
-    ctx.fill();
-  }
+
+/* =================================
+   TERMINAL TYPING ANIMATION
+================================= */
+
+const terminalText = document.getElementById("terminalTyping");
+
+const commands = [
+    "root@portfolio:~# whoami",
+    "Computer Science Student",
+    "root@portfolio:~# status",
+    "Learning. Building. Securing."
+];
+
+let commandIndex = 0;
+let characterIndex = 0;
+let deleting = false;
+
+function typeTerminal() {
+
+    const currentCommand = commands[commandIndex];
+
+    if (!deleting) {
+
+        terminalText.textContent =
+            currentCommand.substring(0, characterIndex + 1);
+
+        characterIndex++;
+
+        if (characterIndex === currentCommand.length) {
+            deleting = true;
+            setTimeout(typeTerminal, 1800);
+            return;
+        }
+
+    } else {
+
+        terminalText.textContent =
+            currentCommand.substring(0, characterIndex - 1);
+
+        characterIndex--;
+
+        if (characterIndex === 0) {
+            deleting = false;
+            commandIndex = (commandIndex + 1) % commands.length;
+        }
+
+    }
+
+    setTimeout(typeTerminal, deleting ? 35 : 75);
 }
 
-if (!reduced) {
-  const hero = canvas.parentElement;
-  hero.addEventListener("pointermove", e => {
-    const r = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
-    requestAnimationFrame(draw);
-  });
-  hero.addEventListener("pointerleave", () => { mouse.x = mouse.y = -999; requestAnimationFrame(draw); });
+typeTerminal();
+
+
+/* =================================
+   HERO SUBTITLE TYPING
+================================= */
+
+const typingText = document.getElementById("typingText");
+
+const titles = [
+    "Security Enthusiast",
+    "Systems Builder",
+    "Tech Explorer",
+    "Problem Solver"
+];
+
+let titleIndex = 0;
+let letterIndex = 0;
+let removing = false;
+
+function typeHero() {
+
+    const title = titles[titleIndex];
+
+    if (!removing) {
+        typingText.textContent = title.substring(0, letterIndex + 1);
+        letterIndex++;
+
+        if (letterIndex === title.length) {
+            removing = true;
+            setTimeout(typeHero, 1400);
+            return;
+        }
+
+    } else {
+        typingText.textContent = title.substring(0, letterIndex - 1);
+        letterIndex--;
+
+        if (letterIndex === 0) {
+            removing = false;
+            titleIndex = (titleIndex + 1) % titles.length;
+        }
+    }
+
+    setTimeout(typeHero, removing ? 45 : 90);
 }
-window.addEventListener("resize", resize);
-new MutationObserver(draw).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
-resize();
+typeHero();
