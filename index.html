@@ -1,112 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sam – Portfolio</title>
-<meta name="description" content="Portfolio of Sam, a university student and web developer based in Dhaka.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
 <body>
 
-<header class="nav">
-  <a class="logo" href="#top">Sam</a>
-  <nav id="menu" aria-label="Main">
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
-    <a href="#skills">Skills</a>
-    <a href="#path">Path</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <button id="theme" class="icon-btn" aria-label="Switch colour theme">◐</button>
-  <button id="burger" class="icon-btn burger" aria-label="Open menu" aria-expanded="false">☰</button>
-</header>
+    <!-- Interactive Background -->
+    <div class="cursor-glow"></div>
+    <div class="grid-background"></div>
 
-<main id="top">
-  <section class="hero">
-    <canvas id="grid" aria-hidden="true"></canvas>
-    <div class="hero-text">
-      <h1><span>Hi, I’m Sam.</span><span>I build things</span><span>for the web.</span></h1>
-      <p>University student in Dhaka, making clean, useful websites and apps.</p>
-      <div class="cta">
-        <a class="btn primary" href="#work">See my work</a>
-        <a class="btn" href="#contact">Get in touch</a>
-      </div>
-    </div>
-  </section>
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar container">
+            <a href="#home" class="logo">
+                <span>root@</span> YourName<span class="dot">.</span>
+            </a>
 
-  <section id="about" class="wrap two-col">
-    <h2>About me</h2>
-    <div>
-      <p class="lead">I’m a student at BRAC University who likes turning small ideas into working software.</p>
-      <p>Write two or three sentences here about what you enjoy building, what you’re learning now, and what kind of opportunities you’re looking for.</p>
-      <dl class="facts">
-        <div><dt>Based in</dt><dd>Dhaka, Bangladesh</dd></div>
-        <div><dt>Studying at</dt><dd>BRAC University</dd></div>
-        <div><dt>Open to</dt><dd>Internships, freelance work</dd></div>
-      </dl>
-    </div>
-  </section>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">01 ABOUT</a></li>
+                <li><a href="#skills">02 STACK</a></li>
+                <li><a href="#projects">03 PROJECTS</a></li>
+            </ul>
 
-  <section id="work" class="wrap">
-    <h2>Selected work</h2>
-    <div class="projects">
-      <article class="card featured">
-        <div class="shot" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="body">
-          <h3>CGPA Calculator</h3>
-          <p>A web app for BRAC University students to calculate and plan their CGPA semester by semester.</p>
-          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
-          <div class="links"><a href="#">Live site</a><a href="#">Source code</a></div>
-        </div>
-      </article>
-      <article class="card">
-        <h3>Project two</h3>
-        <p>One sentence on the problem it solves and what you built.</p>
-        <ul class="tags"><li>React</li><li>Node.js</li></ul>
-        <div class="links"><a href="#">Live site</a><a href="#">Source code</a></div>
-      </article>
-      <article class="card">
-        <h3>Project three</h3>
-        <p>One sentence on the problem it solves and what you built.</p>
-        <ul class="tags"><li>Python</li><li>SQL</li></ul>
-        <div class="links"><a href="#">Source code</a></div>
-      </article>
-    </div>
-  </section>
+            <a href="#contact" class="nav-contact">
+                Execute_Contact()
+            </a>
 
-  <section id="skills" class="wrap">
-    <h2>Skills</h2>
-    <div class="skills">
-      <div><h3>Front end</h3><p>HTML, CSS, JavaScript, React</p></div>
-      <div><h3>Back end</h3><p>Node.js, Python, SQL</p></div>
-      <div><h3>Tools</h3><p>Git, GitHub, Vercel, VS Code</p></div>
-    </div>
-  </section>
+            <button class="menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
 
-  <section id="path" class="wrap two-col">
-    <h2>Path so far</h2>
-    <ol class="timeline">
-      <li><time>2024 – now</time><h3>BSc, BRAC University</h3><p>Add your major and the courses you enjoy most.</p></li>
-      <li><time>2025</time><h3>Your project, club or internship</h3><p>One line on what you did and learned.</p></li>
-      <li><time>2023</time><h3>Higher secondary</h3><p>Add your college and a highlight.</p></li>
-    </ol>
-  </section>
+    <main>
+        <!-- HERO -->
+        <section class="hero container" id="home">
 
-  <section id="contact" class="wrap contact">
-    <h2>Let’s work together</h2>
-    <a class="mail" href="mailto:you@example.com">you@example.com</a>
-    <div class="social">
-      <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/your-username" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-  </section>
-</main>
+            <div class="hero-content reveal">
 
-<footer class="foot">© <span id="year"></span> Sam. Built with HTML, CSS and JavaScript.</footer>
-<script src="script.js"></script>
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    SYSTEM.STATUS: ONLINE
+                </div>
+
+                <h1>Your Name<span>.</span></h1>
+
+                <h2>
+                    Systems Builder &amp; <span id="typingText">Security Enthusiast</span><span class="cursor">_</span>
+                </h2>
+
+                <div class="hero-tags">
+                    <span>[ CYBER_SECURITY ]</span>
+                    <span>[ IoT_HARDWARE ]</span>
+                    <span>[ AI/ML ]</span>
+                </div>
+
+                <p class="hero-description">
+                    &gt; Exploring cybersecurity, building intelligent systems,
+                    and developing technology that solves real-world problems.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#contact" class="terminal-btn primary">
+                        init_contact()
+                    </a>
+
+                    <a href="resume.pdf" class="terminal-btn secondary" target="_blank">
+                        view_resume.pdf
+                    </a>
+                </div>
+
+                <div class="hero-socials">
+                    <a href="https://github.com/YOUR_USERNAME" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:your.email@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- TERMINAL WINDOW -->
+            <div class="terminal-window reveal">
+
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <span>root@yourname-dev: ~</span>
+                    <span class="terminal-menu">▮▮▮</span>
+                </div>
+
+                <div class="terminal-body" id="terminalBody">
+
+                    <p><span class="green">&gt;</span> system.boot()</p>
+                    <p><span class="green">&gt;</span> initializing core_modules...</p>
+
+                    <p class="progress-line">
+                        <span class="progress-bar"></span> 100%
+                    </p>
+
+                    <p><span class="green">&gt;</span> identity: student @ BRAC University</p>
+                    <p><span class="green">&gt;</span> target_lock: [cyber_sec, iot, programming]</p>
+                    <p><span class="green">&gt;</span> learning_mode: active</p>
+                    <p><span class="green">&gt;</span> establishing secure connection...</p>
+
+                    <p class="terminal-command">
+                        <span class="green">&gt;</span>
+                        <span id="terminalTyping"></span><span class="terminal-cursor">█</span>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Keep your ABOUT, SKILLS, PROJECTS, EDUCATION and CONTACT sections here -->
+
+    </main>
+
+    <script src="script.js"></script>
 </body>
-</html>
