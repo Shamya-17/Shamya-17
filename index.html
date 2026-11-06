@@ -1,14 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Personal portfolio of a Computer Science student, developer and cybersecurity enthusiast.">
+    <meta name="author" content="Your Name">
+    <meta name="theme-color" content="#050807">
+
+    <title>Your Name | Systems Builder & Security Enthusiast</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
 
     <!-- Interactive Background -->
-    <div class="cursor-glow"></div>
     <div class="grid-background"></div>
+    <div class="cursor-glow"></div>
 
     <!-- Navigation -->
-    <header>
+    <header class="header">
         <nav class="navbar container">
+
             <a href="#home" class="logo">
-                <span>root@</span> YourName<span class="dot">.</span>
+                <span>root@</span> YourName<span class="logo-dot">.</span>
             </a>
 
             <ul class="nav-links" id="navLinks">
@@ -21,14 +48,17 @@
                 Execute_Contact()
             </a>
 
-            <button class="menu-btn" id="menuBtn">
+            <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
+
         </nav>
     </header>
 
     <main>
-        <!-- HERO -->
+
+        <!-- ================= HERO ================= -->
+
         <section class="hero container" id="home">
 
             <div class="hero-content reveal">
@@ -38,10 +68,13 @@
                     SYSTEM.STATUS: ONLINE
                 </div>
 
+                <p class="hero-label">HELLO, WORLD. I'M</p>
+
                 <h1>Your Name<span>.</span></h1>
 
                 <h2>
-                    Systems Builder &amp; <span id="typingText">Security Enthusiast</span><span class="cursor">_</span>
+                    Systems Builder &amp;
+                    <span id="typingText">Security Enthusiast</span><span class="typing-cursor">_</span>
                 </h2>
 
                 <div class="hero-tags">
@@ -56,46 +89,58 @@
                 </p>
 
                 <div class="hero-buttons">
+
                     <a href="#contact" class="terminal-btn primary">
                         init_contact()
+                        <i class="fas fa-arrow-right"></i>
                     </a>
 
-                    <a href="resume.pdf" class="terminal-btn secondary" target="_blank">
+                    <a href="assets/resume.pdf" target="_blank" class="terminal-btn secondary">
                         view_resume.pdf
                     </a>
+
                 </div>
 
                 <div class="hero-socials">
-                    <a href="https://github.com/YOUR_USERNAME" target="_blank">
+
+                    <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank">
+
+                    <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="mailto:your.email@gmail.com">
+
+                    <a href="mailto:your.email@gmail.com" aria-label="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
+
                 </div>
 
             </div>
 
-            <!-- TERMINAL WINDOW -->
+            <!-- Terminal Window -->
+
             <div class="terminal-window reveal">
 
                 <div class="terminal-header">
+
                     <div class="terminal-dots">
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
 
-                    <span>root@yourname-dev: ~</span>
+                    <span class="terminal-title">root@yourname-dev: ~</span>
+
                     <span class="terminal-menu">▮▮▮</span>
+
                 </div>
 
-                <div class="terminal-body" id="terminalBody">
+                <div class="terminal-body">
 
                     <p><span class="green">&gt;</span> system.boot()</p>
+
                     <p><span class="green">&gt;</span> initializing core_modules...</p>
 
                     <p class="progress-line">
@@ -103,8 +148,11 @@
                     </p>
 
                     <p><span class="green">&gt;</span> identity: student @ BRAC University</p>
+
                     <p><span class="green">&gt;</span> target_lock: [cyber_sec, iot, programming]</p>
+
                     <p><span class="green">&gt;</span> learning_mode: active</p>
+
                     <p><span class="green">&gt;</span> establishing secure connection...</p>
 
                     <p class="terminal-command">
@@ -114,13 +162,409 @@
 
                 </div>
 
+                <div class="terminal-footer">
+                    <span class="status-dot"></span>
+                    CONNECTION ESTABLISHED
+                    <span class="terminal-version">v1.0.0</span>
+                </div>
+
             </div>
 
         </section>
 
-        <!-- Keep your ABOUT, SKILLS, PROJECTS, EDUCATION and CONTACT sections here -->
+
+        <!-- ================= ABOUT ================= -->
+
+        <section class="section container" id="about">
+
+            <div class="section-heading reveal">
+
+                <p class="eyebrow">01 / ABOUT ME</p>
+
+                <h2>Beyond The <span>Code.</span></h2>
+
+                <p>Get to know the person behind the terminal.</p>
+
+            </div>
+
+            <div class="about-grid">
+
+                <div class="about-text reveal">
+
+                    <h3>Curious mind. Technical thinking. Continuous learning.</h3>
+
+                    <p>
+                        I'm a Computer Science and Engineering student at
+                        BRAC University, Bangladesh. I'm passionate about
+                        technology, programming, and understanding how
+                        digital systems work.
+                    </p>
+
+                    <p>
+                        My interests include cybersecurity, software
+                        development, computer networks, IoT, and artificial
+                        intelligence. I enjoy exploring new technologies
+                        and solving problems through practical projects.
+                    </p>
+
+                    <p>
+                        My long-term goal is to become a skilled cybersecurity
+                        professional and contribute to building secure,
+                        reliable, and innovative systems.
+                    </p>
+
+                    <a href="#contact" class="text-link">
+                        Let's connect <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+                <div class="about-stats reveal">
+
+                    <div class="stat-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>01</h3>
+                        <p>University Student</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <i class="fas fa-code"></i>
+                        <h3>∞</h3>
+                        <p>Learning & Building</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <i class="fas fa-shield-halved"></i>
+                        <h3>01</h3>
+                        <p>Career Goal: Cybersecurity</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>24/7</h3>
+                        <p>Curiosity</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section class="section container" id="skills">
+
+            <div class="section-heading reveal">
+
+                <p class="eyebrow">02 / TECHNICAL STACK</p>
+
+                <h2>Tools Of The <span>Trade.</span></h2>
+
+                <p>Technologies and tools I'm learning and working with.</p>
+
+            </div>
+
+            <div class="skills-grid reveal">
+
+                <div class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                    <p>Web Structure</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                    <p>Web Styling</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                    <p>Programming</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                    <p>Programming</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fab fa-git-alt"></i>
+                    <h3>Git</h3>
+                    <p>Version Control</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fab fa-linux"></i>
+                    <h3>Linux</h3>
+                    <p>Operating Systems</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Networking</h3>
+                    <p>Computer Networks</p>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Cybersecurity</h3>
+                    <p>Security Fundamentals</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROJECTS ================= -->
+
+        <section class="section container" id="projects">
+
+            <div class="section-heading reveal">
+
+                <p class="eyebrow">03 / SELECTED WORK</p>
+
+                <h2>Things I've <span>Built.</span></h2>
+
+                <p>Projects, experiments, and practical implementations.</p>
+
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+
+                <article class="project-card reveal">
+
+                    <div class="project-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+
+                    <div class="project-info">
+
+                        <span class="project-type">WEB DEVELOPMENT</span>
+
+                        <h3>Personal Portfolio</h3>
+
+                        <p>
+                            A responsive developer portfolio showcasing
+                            my technical skills, background, projects,
+                            and professional information.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <a href="https://github.com/YOUR_USERNAME/YOUR_REPO"
+                           target="_blank" rel="noopener noreferrer" class="project-link">
+                            View Repository <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Project 2 -->
+
+                <article class="project-card reveal">
+
+                    <div class="project-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+
+                    <div class="project-info">
+
+                        <span class="project-type">PROGRAMMING</span>
+
+                        <h3>Project Two</h3>
+
+                        <p>
+                            Add your programming project description,
+                            its purpose, features, and the technologies
+                            used to build it.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Programming</span>
+                        </div>
+
+                        <a href="https://github.com/YOUR_USERNAME"
+                           target="_blank" rel="noopener noreferrer" class="project-link">
+                            View Repository <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Project 3 -->
+
+                <article class="project-card reveal">
+
+                    <div class="project-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+
+                    <div class="project-info">
+
+                        <span class="project-type">CYBERSECURITY</span>
+
+                        <h3>Security Lab</h3>
+
+                        <p>
+                            Showcase your cybersecurity labs, networking
+                            experiments, CTF write-ups, or security
+                            research projects.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>Linux</span>
+                            <span>Networking</span>
+                        </div>
+
+                        <a href="https://github.com/YOUR_USERNAME"
+                           target="_blank" rel="noopener noreferrer" class="project-link">
+                            View Repository <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= EDUCATION ================= -->
+
+        <section class="section container" id="education">
+
+            <div class="section-heading reveal">
+
+                <p class="eyebrow">04 / EDUCATION</p>
+
+                <h2>Academic <span>Journey.</span></h2>
+
+            </div>
+
+            <div class="education-card reveal">
+
+                <div class="education-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+
+                <div>
+
+                    <span class="project-type">CURRENT EDUCATION</span>
+
+                    <h3>
+                        Bachelor of Science in Computer Science & Engineering
+                    </h3>
+
+                    <p>BRAC University</p>
+
+                    <span class="education-location">
+                        <i class="fas fa-location-dot"></i>
+                        Dhaka, Bangladesh
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section class="section container" id="contact">
+
+            <div class="contact-box reveal">
+
+                <p class="eyebrow">05 / ESTABLISH CONNECTION</p>
+
+                <h2>
+                    Ready to build something <span>meaningful?</span>
+                </h2>
+
+                <p>
+                    Have a project idea, collaboration opportunity,
+                    or just want to connect? Let's talk.
+                </p>
+
+                <a href="mailto:your.email@gmail.com" class="terminal-btn primary">
+                    Execute_Contact()
+                    <i class="fas fa-paper-plane"></i>
+                </a>
+
+                <div class="contact-socials">
+
+                    <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+
+                    <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+
+                    <a href="mailto:your.email@gmail.com">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
 
     </main>
 
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <a href="#home" class="logo">
+                <span>root@</span> YourName<span class="logo-dot">.</span>
+            </a>
+
+            <p>
+                Designed & Built with <span class="heart">♥</span>
+            </p>
+
+            <p>
+                © <span id="year"></span> Your Name. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Back To Top -->
+
+    <button id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    <!-- JavaScript -->
+
     <script src="script.js"></script>
+
 </body>
+</html>
